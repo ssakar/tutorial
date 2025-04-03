@@ -1,4 +1,4 @@
-# Running vLLM on the NVIDIA RTX 5090 with Optimized AWQ Quantization
+# Running vLLM on the NVIDIA RTX 5090
 
 This guide demonstrates optimized deployment of vLLM on NVIDIA RTX 5090 GPUs. As the RTX 5090 utilizes NVIDIA's newer Blackwell architecture with CUDA SM 12.0, upstream support remains limited. We focus on the [QwQ-32B](https://huggingface.co/Qwen/QwQ-32B-AWQ) model with AWQ quantization, which achieves inference speeds of approximately **65 tokens per second**. This guide will be updated as official support improves. Please submit issues for any corrections or suggestions.
 
