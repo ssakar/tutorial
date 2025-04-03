@@ -56,4 +56,4 @@ podman run --rm --device nvidia.com/gpu=all --security-opt=label=disable \
     --enable-reasoning --reasoning-parser deepseek_r1 \
     --enable-auto-tool-choice --tool-call-parser hermes 
 ```
-Note that the reasoning is enabled which means we will have a [reason_content](https://docs.vllm.ai/en/latest/features/reasoning_outputs.html) in the assistant message. Also [tool usage](https://qwen.readthedocs.io/en/latest/framework/function_call.html#vllm) is supported and works well with QwQ.
+Note that the reasoning is enabled which means we will have a [reasoning_content](https://docs.vllm.ai/en/latest/features/reasoning_outputs.html) in the assistant message. Also [tool usage](https://qwen.readthedocs.io/en/latest/framework/function_call.html#vllm) is supported and works well with QwQ.
