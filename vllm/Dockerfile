@@ -1,7 +1,7 @@
 # Use the NVIDIA PyTorch image as the base
 FROM nvcr.io/nvidia/pytorch:25.03-py3
 
-ENV MAX_JOBS=4
+ENV MAX_JOBS=16
 ENV NVCC_THREADS=4
 ENV FLASHINFER_ENABLE_AOT=0
 ENV USE_CUDA=1
