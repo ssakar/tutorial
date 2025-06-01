@@ -48,6 +48,7 @@ RUN pip install aiohttp==3.11.18
 RUN pip install protobuf==5.29.4
 RUN pip install click==8.1.8
 RUN pip install rich==13.7.1
+RUN pip install starlette==0.46.2
 
 # Build vllm
 RUN git clone https://github.com/vllm-project/vllm.git /workspace/vllm
