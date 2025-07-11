@@ -1,4 +1,7 @@
-# Running vLLM on the NVIDIA RTX 5090
+
+# Official [vllm images](https://hub.docker.com/r/vllm/vllm-openai/tags) since v0.9.2
+
+# Deprecated: Running vLLM on the NVIDIA RTX 5090
 
 This guide shows how to use [vLLM](https://github.com/vllm-project/vllm) with the NVIDIA RTX 5090 GPU. As the RTX 5090 utilizes NVIDIA's newer Blackwell architecture with CUDA 12.8, official upstream support remains limited. We focus on the [QwQ-32B](https://huggingface.co/Qwen/QwQ-32B-AWQ) model with AWQ quantization, which achieves inference speeds of approximately **65 tokens per second**. This guide will be updated as official support improves. Please submit issues for any corrections or suggestions.
 
