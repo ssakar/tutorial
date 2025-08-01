@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     python3-dev \
     python3-venv \
+    libsndfile1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -37,23 +38,26 @@ RUN cmake -DCOMPUTE_BACKEND=cuda -S .
 RUN make -j 4
 RUN pip install -e .
 
-# Build flashinfer, set FLASHINFER_ENABLE_AOT=0 for JIT compiler
-RUN git clone https://github.com/flashinfer-ai/flashinfer.git --recursive /workspace/flashinfer
+# Build flashinfer
+RUN git clone https://github.com/flashinfer-ai/flashinfer.git --branch main --recursive /workspace/flashinfer
 WORKDIR /workspace/flashinfer
+RUN git checkout cd928a7e044c94bdd96e3f7ca79a0514b253ea6d
 RUN pip install --no-cache-dir ninja build packaging "setuptools>=75.6.0"
 RUN python3 -m flashinfer.aot
 RUN python3 -m build --no-isolation --wheel
 RUN pip install dist/flashinfer*.whl
 
-RUN pip install aiohttp==3.11.18
-RUN pip install protobuf==5.29.4
+RUN pip install aiohttp==3.12.14
+RUN pip install protobuf==5.29.5
 RUN pip install click==8.1.8
 RUN pip install rich==13.7.1
 RUN pip install starlette==0.46.2
+RUN pip install typing-extensions==4.14.1
 
 # Build vllm
-RUN git clone https://github.com/vllm-project/vllm.git /workspace/vllm
+RUN git clone https://github.com/vllm-project/vllm.git --branch main /workspace/vllm
 WORKDIR /workspace/vllm
+RUN git checkout d84b97a3e33ed79aaba7552bfe5889d363875562
 RUN python3 use_existing_torch.py
 RUN pip install --no-cache-dir -r requirements/build.txt
 RUN pip install --no-cache-dir setuptools_scm
